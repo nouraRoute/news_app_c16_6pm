@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16_6pm/common/extention/theme_extention.dart';
-import 'package:news_app_c16_6pm/models/articles_model.dart';
+import 'package:news_app_c16_6pm/features/articles/model/articles_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -9,7 +9,6 @@ class ArticleCardWidget extends StatelessWidget {
   final Articles articles;
   @override
   Widget build(BuildContext context) {
-    print('---->${(articles.description!).length}');
     return Container(
       padding: EdgeInsets.all(8),
       margin: EdgeInsets.all(8),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_c16_6pm/common/app_theme.dart';
-import 'package:news_app_c16_6pm/pages/main_layer_page.dart';
+import 'package:news_app_c16_6pm/features/categories/view/main_layer_page.dart';
 
 void main() {
   runApp(const MyApp());

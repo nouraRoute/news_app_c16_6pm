@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:news_app_c16_6pm/common/network/network_contes.dart';
-import 'package:news_app_c16_6pm/models/articles_model.dart';
-import 'package:news_app_c16_6pm/models/source_mode.dart';
+import 'package:news_app_c16_6pm/features/articles/model/articles_model.dart';
+import 'package:news_app_c16_6pm/features/articles/model/source_mode.dart';
 
 class ApisService {
   static Dio dio = Dio(BaseOptions(baseUrl: NetworkContes.baseUrl));

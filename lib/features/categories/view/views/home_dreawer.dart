@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_c16_6pm/providers/category_provider.dart';
+import 'package:news_app_c16_6pm/features/categories/view_model/category_provider.dart';
 import 'package:provider/provider.dart';
 
 class HomeDrawer extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_c16_6pm/pages/views/category_details_view.dart';
-import 'package:news_app_c16_6pm/pages/views/category_view.dart';
-import 'package:news_app_c16_6pm/pages/views/home_dreawer.dart';
-import 'package:news_app_c16_6pm/providers/category_provider.dart';
+import 'package:news_app_c16_6pm/features/articles/view/category_details_view.dart';
+import 'package:news_app_c16_6pm/features/categories/view/views/category_view.dart';
+import 'package:news_app_c16_6pm/features/categories/view/views/home_dreawer.dart';
+import 'package:news_app_c16_6pm/features/categories/view_model/category_provider.dart';
 import 'package:provider/provider.dart';
 
 class MainLayerPage extends StatelessWidget {
