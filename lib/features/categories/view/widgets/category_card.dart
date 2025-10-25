@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app_c16_6pm/common/extention/theme_extention.dart';
 import 'package:news_app_c16_6pm/features/categories/model/enums/category_enum.dart';
 import 'package:news_app_c16_6pm/features/categories/view_model/category_provider.dart';
@@ -37,7 +38,7 @@ class CategoryCard extends StatelessWidget {
             Text(
               categoryEnum.name,
               style: context.getTextTheme.displayLarge!.copyWith(
-                fontSize: 24,
+                fontSize: 24.sp,
                 color: context.getTheme.colorScheme.secondary,
               ),
             ),
@@ -54,8 +55,8 @@ class CategoryCard extends StatelessWidget {
                   if (!isRight)
                     Container(
                       margin: EdgeInsets.only(right: 8),
-                      height: 54,
-                      width: 54,
+                      height: 54.r,
+                      width: 54.r,
                       padding: EdgeInsets.only(left: 5),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
@@ -76,16 +77,16 @@ class CategoryCard extends StatelessWidget {
                     child: Text(
                       'View All',
                       style: context.getTextTheme.titleLarge!.copyWith(
-                        fontSize: 24,
+                        fontSize: 24.sp,
                       ),
                     ),
                   ),
 
                   if (isRight)
                     Container(
-                      margin: EdgeInsets.only(left: 8),
-                      height: 54,
-                      width: 54,
+                      margin: EdgeInsets.only(left: 8.w),
+                      height: 54.r,
+                      width: 54.r,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: context.getTheme.scaffoldBackgroundColor,

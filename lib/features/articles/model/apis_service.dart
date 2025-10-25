@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:news_app_c16_6pm/common/error/failure_model.dart';
 import 'package:news_app_c16_6pm/common/network/network_contes.dart';
 import 'package:news_app_c16_6pm/features/articles/model/articles_model.dart';
 import 'package:news_app_c16_6pm/features/articles/model/source_mode.dart';
@@ -19,9 +20,9 @@ class ApisService {
         throw sourceModel.message ?? 'something went wrong';
       }
     } on DioException catch (e) {
-      throw e.message ?? 'something went wrong';
+      throw FailureModel.getNetworkFailure(e);
     } catch (e) {
-      throw e.toString();
+      throw BaseFailure(errorMEssage: e.toString());
     }
   }
 
@@ -38,9 +39,9 @@ class ApisService {
         throw articlesModel.message ?? 'something went wrong';
       }
     } on DioException catch (e) {
-      throw e.message ?? 'something went wrong';
+      throw FailureModel.getNetworkFailure(e);
     } catch (e) {
-      throw e.toString();
+      throw BaseFailure(errorMEssage: e.toString());
     }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_c16_6pm/common/widgets/error_widget.dart';
 import 'package:news_app_c16_6pm/features/articles/model/articles_model.dart';
 import 'package:news_app_c16_6pm/features/articles/model/source_mode.dart';
 import 'package:news_app_c16_6pm/features/articles/view/widgets/article_card_widget.dart';
@@ -89,40 +90,17 @@ class _ArticlesListState extends State<ArticlesList> {
         ArticlesModel articlesModel = viewModel.articles!;
         List<Articles> articles = articlesModel.articles ?? [];
 
-        return ListView.builder(
-          itemCount: articles.length,
-          itemBuilder: (context, index) =>
-              ArticleCardWidget(articles: articles[index]),
+        return RefreshIndicator(
+          onRefresh: () async {
+            viewModel.getArticles(widget.sourceID);
+          },
+          child: ListView.builder(
+            itemCount: articles.length,
+            itemBuilder: (context, index) =>
+                ArticleCardWidget(articles: articles[index]),
+          ),
         );
       },
-    );
-  }
-}
-
-class ErrorView extends StatelessWidget {
-  const ErrorView({super.key, required this.error, required this.onRefresh});
-
-  final String error;
-  final void Function() onRefresh;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 20,
-          children: [
-            Text(error),
-            FilledButton.icon(
-              onPressed: onRefresh,
-              label: Text('Reload'),
-              icon: Icon(Icons.refresh),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

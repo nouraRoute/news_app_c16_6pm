@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app_c16_6pm/common/app_theme.dart';
 import 'package:news_app_c16_6pm/features/categories/view/main_layer_page.dart';
 
@@ -12,13 +13,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      routes: {MainLayerPage.routeName: (_) => MainLayerPage()},
-      initialRoute: MainLayerPage.routeName,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
+    return ScreenUtilInit(
+      designSize: Size(390, 850),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        routes: {MainLayerPage.routeName: (_) => MainLayerPage()},
+        initialRoute: MainLayerPage.routeName,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: ThemeMode.light,
+      ),
     );
   }
 }

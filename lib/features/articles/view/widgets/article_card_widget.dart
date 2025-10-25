@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app_c16_6pm/common/extention/theme_extention.dart';
 import 'package:news_app_c16_6pm/features/articles/model/articles_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -26,7 +27,7 @@ class ArticleCardWidget extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl: articles.urlToImage ?? '',
               width: double.infinity,
-              height: 220,
+              height: 220.h,
               fit: BoxFit.cover,
               //   alignment: Alignment(0, 0),
               placeholder: (context, url) =>
@@ -38,13 +39,13 @@ class ArticleCardWidget extends StatelessWidget {
           Text(
             articles.title ?? '',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.bold,
               color: context.getTheme.primaryColor,
             ),
           ),
           Row(
-            spacing: 20,
+            spacing: 20.w,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
@@ -54,7 +55,7 @@ class ArticleCardWidget extends StatelessWidget {
                       : '${articles.description!.substring(0, 100)}...show more',
                   style: TextStyle(
                     color: Color(0xffA0A0A0),
-                    fontSize: 12,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.w500,
                   ),
                   textAlign: TextAlign.justify,
@@ -64,7 +65,7 @@ class ArticleCardWidget extends StatelessWidget {
                 timeago.format(DateTime.parse(articles.publishedAt ?? '')),
                 style: TextStyle(
                   color: Color(0xffA0A0A0),
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ),

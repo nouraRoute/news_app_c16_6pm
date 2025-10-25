@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_c16_6pm/common/error/failure_model.dart';
 import 'package:news_app_c16_6pm/features/articles/model/apis_service.dart';
 import 'package:news_app_c16_6pm/features/articles/model/articles_model.dart';
 import 'package:news_app_c16_6pm/features/articles/model/source_mode.dart';
@@ -14,8 +15,10 @@ class ArticlesProvider extends ChangeNotifier {
     notifyListeners();
     try {
       sources = await ApisService.getSources(catName);
+    } on FailureModel catch (e) {
+      articlesError = e.errorMEssage;
     } catch (e) {
-      sourcesError = e.toString();
+      articlesError = e.toString();
     }
     sourcesLoading = false;
     notifyListeners();
@@ -27,6 +30,8 @@ class ArticlesProvider extends ChangeNotifier {
     notifyListeners();
     try {
       articles = await ApisService.getArticles(sourceId);
+    } on FailureModel catch (e) {
+      articlesError = e.errorMEssage;
     } catch (e) {
       articlesError = e.toString();
     }
