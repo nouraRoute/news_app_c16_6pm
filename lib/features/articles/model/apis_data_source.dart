@@ -1,13 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:news_app_c16_6pm/common/error/failure_model.dart';
 import 'package:news_app_c16_6pm/common/network/network_contes.dart';
+import 'package:news_app_c16_6pm/features/articles/model/articles_data_source.dart';
 import 'package:news_app_c16_6pm/features/articles/model/articles_model.dart';
 import 'package:news_app_c16_6pm/features/articles/model/source_mode.dart';
 
-class ApisService {
+class ApisDataSource extends ArticlesDataSource {
   static Dio dio = Dio(BaseOptions(baseUrl: NetworkContes.baseUrl));
 
-  static Future<SourceModel?> getSources(String category) async {
+  @override
+  Future<SourceModel> getSources(String category) async {
     try {
       Response response = await dio.get(
         NetworkContes.sourcesEndPoint,
@@ -26,7 +28,8 @@ class ApisService {
     }
   }
 
-  static Future<ArticlesModel> getArticles(String sourceId) async {
+  @override
+  Future<ArticlesModel> getArticles(String sourceId) async {
     try {
       Response response = await dio.get(
         NetworkContes.articlesEndPoint,

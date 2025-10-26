@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_c16_6pm/common/service_locator/service_locator.dart';
 import 'package:news_app_c16_6pm/common/widgets/error_widget.dart';
 import 'package:news_app_c16_6pm/features/articles/model/articles_model.dart';
 import 'package:news_app_c16_6pm/features/articles/model/source_mode.dart';
@@ -15,7 +16,8 @@ class CategoryDetailsView extends StatelessWidget {
     CategoryProvider provider = Provider.of<CategoryProvider>(context);
     return ChangeNotifierProvider(
       create: (context) =>
-          ArticlesProvider()..getSources(provider.selectedCategory!.name),
+          ServiceLocator.articlesProvider
+            ..getSources(provider.selectedCategory!.name),
       child: Consumer<ArticlesProvider>(
         builder: (context, viewModel, child) {
           if (viewModel.sourcesLoading) {
