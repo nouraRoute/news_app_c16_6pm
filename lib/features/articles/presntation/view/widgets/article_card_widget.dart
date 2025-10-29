@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app_c16_6pm/common/extention/theme_extention.dart';
-import 'package:news_app_c16_6pm/features/articles/model/articles_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:news_app_c16_6pm/features/articles/domain/entities/article_entity.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class ArticleCardWidget extends StatelessWidget {
   const ArticleCardWidget({super.key, required this.articles});
-  final Articles articles;
+  final ArticleEntity articles;
   @override
   Widget build(BuildContext context) {
     return Container(

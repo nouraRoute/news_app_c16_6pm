@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app_c16_6pm/common/extention/theme_extention.dart';
 import 'package:news_app_c16_6pm/features/categories/model/enums/category_enum.dart';
+import 'package:news_app_c16_6pm/features/categories/view_model/category_cubit.dart';
 import 'package:news_app_c16_6pm/features/categories/view_model/category_provider.dart';
-import 'package:provider/provider.dart';
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
@@ -16,7 +17,7 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Provider.of<CategoryProvider>(
+      onTap: () => BlocProvider.of<CategoryCubit>(
         context,
         listen: false,
       ).selectCategory(categoryEnum),
